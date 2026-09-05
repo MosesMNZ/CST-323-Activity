@@ -3,39 +3,36 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Products - CST 323 Activity</title>
+    <title>Products - Product Inventory Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-gHcu4Y3EjrZ5nL4v2l2B7aOx74pDkcRiA65agE7LFp/0EFf3PPzcIykQKJ8m5048" crossorigin="anonymous" />
+              integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="container">
-        <a class="navbar-brand" href="/">CST 323</a>
+        <a class="navbar-brand" th:href="@{/}">Product Inventory</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" th:href="@{/}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/products">Products</a>
+                    <a class="nav-link active" aria-current="page" th:href="@{/products}">Products</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
-<div class="container py-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
+<main class="container py-5">
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
         <div>
             <h1 class="h3">Product Management</h1>
             <p class="text-muted mb-0">View, add, edit, and delete products.</p>
         </div>
-        <div>
-            <a href="/" class="btn btn-outline-secondary me-2">Home</a>
-            <a href="/products/new" class="btn btn-primary">Add Product</a>
-        </div>
+        <a th:href="@{/products/new}" class="btn btn-primary align-self-start">Add Product</a>
     </div>
 
     <div th:if="${successMessage}" class="alert alert-success" th:text="${successMessage}"></div>
@@ -72,7 +69,7 @@
             </tbody>
         </table>
     </div>
-</div>
+</main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
